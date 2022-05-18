@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1036865228630",
+    "firebase_url": "https://bookvibe-964f5-default-rtdb.firebaseio.com",
+    "project_id": "bookvibe-964f5",
+    "storage_bucket": "bookvibe-964f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036865228630:android:757ffcb6becb63b0db50f7",
+        "android_client_info": {
+          "package_name": "com.example.bookvibe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036865228630-4r1i1sd3pskfof0ohq6sj3fsmolj6gj9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bookvibe",
+            "certificate_hash": "9e40d8e8422acaf9d2714273849f7fbdeebbb36b"
+          }
+        },
+        {
+          "client_id": "1036865228630-8npa6n82dd3gpfj58ss60kj0aavmcf4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrGUtFh-Qw_KK1g2lR-4k2TQ6Vm0UwSxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036865228630-8npa6n82dd3gpfj58ss60kj0aavmcf4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
