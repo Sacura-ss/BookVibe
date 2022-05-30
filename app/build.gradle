@@ -30,6 +30,7 @@ android {
     //enable view binding(~ findviewbyid)
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
 }
 

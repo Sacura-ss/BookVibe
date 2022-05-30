@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookvibe.databinding.RowCategoryBinding;
@@ -131,7 +132,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
         TextView categoryTv;
         ImageButton deleteBtn;
 
-        public HolderCategory(@NonNull View itemView) {
+        public HolderCategory(@NonNull CardView itemView) {
             super(itemView);
             //init ui views
             categoryTv = binding.categoryTv;

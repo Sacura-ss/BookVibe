@@ -24,6 +24,7 @@
         <entry key="app/src/main/res/layout/activity_dashboard_user.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_pdf_add.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="app/src/main/res/layout/row_category.xml" value="0.165" />
