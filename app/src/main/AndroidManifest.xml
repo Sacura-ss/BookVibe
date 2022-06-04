@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".PdfViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PdfDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".PdfAddActivity"
             android:exported="false" />
         <activity

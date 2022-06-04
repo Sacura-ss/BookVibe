@@ -48,12 +48,12 @@
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Book Description"
-            android:layout_toEndOf="@+id/pdfRl"
-            android:layout_marginTop="8dp"
             android:layout_below="@+id/titleTv"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/pdfRl"
+            android:ellipsize="end"
             android:maxLines="4"
-            android:ellipsize="end"/>
+            android:text="Book Description" />
 
         <TextView
             android:id="@+id/categoryTv"
@@ -70,10 +70,10 @@
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="13 MB"
-            android:layout_toEndOf="@+id/pdfRl"
             android:layout_alignParentBottom="true"
-            android:maxLines="1"/>
+            android:layout_toEndOf="@+id/pdfRl"
+            android:maxLines="1"
+            android:text="13 MB" />
 
         <TextView
             android:id="@+id/dataTv"

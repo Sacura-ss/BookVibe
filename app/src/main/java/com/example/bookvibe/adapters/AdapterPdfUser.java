@@ -1,4 +1,4 @@
-package com.example.bookvibe;
+package com.example.bookvibe.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookvibe.PdfDetailActivity;
+import com.example.bookvibe.filters.FilterPdfUser;
+import com.example.bookvibe.MyApplication;
 import com.example.bookvibe.databinding.RowPdfUserBinding;
+import com.example.bookvibe.models.ModelPdf;
 import com.github.barteksc.pdfviewer.PDFView;
 
 import java.util.List;
@@ -48,6 +52,7 @@ public class AdapterPdfUser extends RecyclerView.Adapter<AdapterPdfUser.HolderPd
 
         //get data
         ModelPdf modelPdf = pdfArrayList.get(position);
+        String bookId = modelPdf.getId();
         String title = modelPdf.getTitle();
         String description = modelPdf.getDescription();
         String pdfUrl = modelPdf.getUrl();
@@ -79,12 +84,14 @@ public class AdapterPdfUser extends RecyclerView.Adapter<AdapterPdfUser.HolderPd
         );
 
         //handle click, show pdf details activity
-        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, PdfDetailActivity.class);
+                intent.putExtra("bookId", bookId);
+                context.startActivity(intent);
             }
-        });*/ // 11 40:15
+        }); // 11 40:15
 
     }
 

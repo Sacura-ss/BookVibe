@@ -1,4 +1,4 @@
-package com.example.bookvibe;
+package com.example.bookvibe.adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -16,7 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookvibe.filters.FilterCategory;
 import com.example.bookvibe.databinding.RowCategoryBinding;
+import com.example.bookvibe.models.ModelCategory;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;

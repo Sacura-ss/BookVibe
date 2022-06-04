@@ -3,11 +3,13 @@ package com.example.bookvibe;
 import static com.example.bookvibe.Constants.MAX_BYTES_PDF;
 
 import android.app.Application;
+import android.content.Context;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -17,6 +19,7 @@ import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageErrorListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +30,7 @@ import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
 
 public class MyApplication extends Application {
@@ -164,5 +168,67 @@ public class MyApplication extends Application {
                     }
                 });
 
+    }
+
+
+    public static void addToLibrary(Context context, String bookId) {
+        //we can add only if user is logged in
+        //1) check if user logged in
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() == null) {
+            //not logged in, can not add book
+            Toast.makeText(context, "You are not logged in", Toast.LENGTH_SHORT).show();
+        } else {
+            long timestamp = System.currentTimeMillis();
+
+            //setup data to add in firebase db of a current user for All book
+            HashMap<String,Object> hashMap = new HashMap<>();
+            hashMap.put("bookId",""+bookId);
+            hashMap.put("timestamp",""+timestamp);
+
+            //save to db
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+            reference.child(firebaseAuth.getUid()).child("Library").child(bookId)
+                    .setValue(hashMap)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(context, "Added to your library", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context, "Failed to add to library due to"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+    }
+
+    public static void removeFromLibrary(Context context, String bookId) {
+        //we can remove only if user is logged in
+        //1) check if user logged in
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() == null) {
+            //not logged in, can not remove from library
+            Toast.makeText(context, "You are not logged in", Toast.LENGTH_SHORT).show();
+        } else {
+            //remove from db
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+            reference.child(firebaseAuth.getUid()).child("Library").child(bookId)
+                    .removeValue()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(context, "Remove from your library", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context, "Failed to remove from library due to"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 }

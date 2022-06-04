@@ -1,4 +1,4 @@
-package com.example.bookvibe;
+package com.example.bookvibe.models;
 
 public class ModelPdf {
 

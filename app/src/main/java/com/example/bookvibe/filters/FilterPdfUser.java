@@ -1,11 +1,12 @@
-package com.example.bookvibe;
+package com.example.bookvibe.filters;
 
 import android.widget.Filter;
 
-import java.io.File;
+import com.example.bookvibe.adapters.AdapterPdfUser;
+import com.example.bookvibe.models.ModelPdf;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class FilterPdfUser extends Filter {
 

@@ -1,5 +1,6 @@
 package com.example.bookvibe;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,8 +12,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.bookvibe.adapters.AdapterPdfUser;
 import com.example.bookvibe.databinding.FragmentBooksUserBinding;
+import com.example.bookvibe.databinding.RowPdfUserBinding;
+import com.example.bookvibe.models.ModelPdf;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -61,6 +67,7 @@ public class BooksUserFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             categoryId = getArguments().getString("categoryId");
             category = getArguments().getString("category");
@@ -100,7 +107,7 @@ public class BooksUserFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                //ca;ed as and when user type any letter
+                //called as and when user type any letter
                 try {
                     adapterPdfUser.getFilter().filter(charSequence);
                 } catch (Exception e) {
@@ -115,8 +122,6 @@ public class BooksUserFragment extends Fragment {
         });
         return binding.getRoot();
     }
-
-
 
     private void loadAllBooks() {
         //init list
@@ -208,5 +213,6 @@ public class BooksUserFragment extends Fragment {
             }
         });
     }
+
 
 }

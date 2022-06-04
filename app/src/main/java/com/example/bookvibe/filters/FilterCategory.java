@@ -1,6 +1,9 @@
-package com.example.bookvibe;
+package com.example.bookvibe.filters;
 
 import android.widget.Filter;
+
+import com.example.bookvibe.adapters.AdapterCategory;
+import com.example.bookvibe.models.ModelCategory;
 
 import java.util.ArrayList;
 import java.util.List;

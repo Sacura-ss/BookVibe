@@ -1,4 +1,4 @@
-package com.example.bookvibe;
+package com.example.bookvibe.models;
 
 public class ModelCategory {
     //make sure to use same spellings for model variables as in firebase

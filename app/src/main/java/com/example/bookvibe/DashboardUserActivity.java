@@ -9,12 +9,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.bookvibe.databinding.ActivityDashboardAdminBinding;
 import com.example.bookvibe.databinding.ActivityDashboardUserBinding;
+import com.example.bookvibe.models.ModelCategory;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -170,9 +169,8 @@ public class DashboardUserActivity extends AppCompatActivity {
         // get current user
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if(firebaseUser == null) {
-            //not logged n, go to main screen
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
+            //not logged in
+            binding.subTitleTv.setText("Not Logged In");
         } else {
             //logged in, get user info
             String email = firebaseUser.getEmail();
