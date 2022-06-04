@@ -3,17 +3,25 @@ package com.example.bookvibe;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.bookvibe.adapters.AdapterCategory;
+import com.example.bookvibe.adapters.AdapterCollection;
 import com.example.bookvibe.databinding.ActivityProfileBinding;
+import com.example.bookvibe.models.ModelCategory;
+import com.example.bookvibe.models.ModelCollection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -25,6 +33,11 @@ public class ProfileActivity extends AppCompatActivity {
 
     private static final String TAG = "PROFILE_TAG";
 
+    //array list to store collection
+    private List<ModelCollection> collectionArrayList;
+    //adapter
+    private AdapterCollection adapterCollection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +47,21 @@ public class ProfileActivity extends AppCompatActivity {
         //setup firebase auth
         firebaseAuth = FirebaseAuth.getInstance();
         loadUserInfo();
+        loadCollections();
 
         //handle click, go back
         binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        //handle click, start collection add screen
+        binding.addCategoryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this, CollectionAddActivity.class));
             }
         });
     }
@@ -79,4 +101,37 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    private void loadCollections() {
+        //init arraylist
+        collectionArrayList = new ArrayList<>();
+
+        //get all collection from firebase > Users > Collections
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+        reference.child(firebaseAuth.getUid()).child("Collections")
+                .addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //clear arraylist before adding data into it
+                collectionArrayList.clear();
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()) {
+                    //get data
+                    ModelCollection modelCollection = dataSnapshot.getValue(ModelCollection.class);
+
+                    //add to arraylist
+                    collectionArrayList.add(modelCollection);
+                }
+                //setup adapter
+                adapterCollection = new AdapterCollection(ProfileActivity.this, collectionArrayList);
+                //set adapter to recyclerview
+                binding.categoriesRv.setAdapter(adapterCollection);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
 }

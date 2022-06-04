@@ -23,7 +23,8 @@
         <entry key="app/src/main/res/drawable/tab_background_selected.xml" value="0.1065" />
         <entry key="app/src/main/res/drawable/tab_background_unselected.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_category_add.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_category_add.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_collection_add.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dashboard_admin.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dashboard_user.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.22" />
@@ -31,7 +32,7 @@
         <entry key="app/src/main/res/layout/activity_pdf_add.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_pdf_detail.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_pdf_view.xml" value="0.12118679481821981" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_books_user.xml" value="0.23046875" />

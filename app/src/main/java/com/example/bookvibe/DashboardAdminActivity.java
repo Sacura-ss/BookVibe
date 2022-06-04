@@ -79,7 +79,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
             }
         });
 
-        //handle click, start category ass screen
+        //handle click, start category add screen
         binding.addCategoryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
