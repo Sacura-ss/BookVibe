@@ -1,6 +1,5 @@
-package com.example.bookvibe;
+package com.example.bookvibe.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,13 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.bookvibe.adapters.AdapterPdfUser;
 import com.example.bookvibe.databinding.FragmentBooksUserBinding;
-import com.example.bookvibe.databinding.RowPdfUserBinding;
 import com.example.bookvibe.models.ModelPdf;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

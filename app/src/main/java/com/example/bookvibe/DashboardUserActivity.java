@@ -9,10 +9,12 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.bookvibe.databinding.ActivityDashboardUserBinding;
+import com.example.bookvibe.fragments.BooksUserFragment;
 import com.example.bookvibe.models.ModelCategory;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -56,6 +58,14 @@ public class DashboardUserActivity extends AppCompatActivity {
             public void onClick(View view) {
                 firebaseAuth.signOut();
                 checkUser();
+            }
+        });
+
+        //handle click, open profile
+        binding.profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DashboardUserActivity.this, ProfileActivity.class));
             }
         });
 
