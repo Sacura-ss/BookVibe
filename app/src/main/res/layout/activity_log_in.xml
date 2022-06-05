@@ -19,7 +19,7 @@
             android:id="@+id/upLoginBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/shape_button04"
+            android:background="@drawable/shape_button03"
             android:layout_weight="1"
             android:text="Log In"
             android:textColor="@color/black"/>
@@ -27,7 +27,7 @@
             android:id="@+id/upSignupBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/shape_button03"
+            android:background="@drawable/shape_button04"
             android:layout_weight="1"
             android:text="Sign up"
             android:textColor="@color/black"/>

@@ -30,13 +30,13 @@
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/skipBtn"
-        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="140dp"
         android:background="@drawable/shape_button01"
         android:text="Login or Sing Up"
         android:textColor="@color/black" />
 
-    <Button
+    <!--<Button
         android:id="@+id/skipBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,6 +44,6 @@
         android:layout_marginBottom="130dp"
         android:background="@drawable/shape_button02"
         android:text="Continue Without Login"
-        android:textColor="@color/black" />
+        android:textColor="@color/black" />-->
 
 </RelativeLayout>
