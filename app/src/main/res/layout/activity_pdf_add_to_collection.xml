@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PdfAddToCollectionActivity">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRl"
+        android:layout_width="match_parent"
+        android:layout_height="258dp"
+        android:background="@drawable/shape_toolbar02">
+
+        <!--Back button-->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/transparent"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_black"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <!--Icon:Image-->
+        <ImageView
+            android:id="@+id/iconIv"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_below="@+id/backBtn"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo" />
+
+        <!--Title-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iconIv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Add Book To Collection"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <!--Pick Book from dialog-->
+    <TextView
+        android:id="@+id/bookTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/shape_edittext02"
+        android:drawableStart="@drawable/ic_book_gray"
+        android:drawableEnd="@drawable/ic_down_gray"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:hint="Book"
+        android:padding="10dp"
+        android:textColorHint="@color/gray01"
+        android:textSize="16sp" />
+
+    <!--Pick Collection from dialog-->
+    <TextView
+        android:id="@+id/collectionTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bookTv"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_edittext02"
+        android:drawableStart="@drawable/ic_category_gray"
+        android:drawableEnd="@drawable/ic_down_gray"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:hint="Book Collection"
+        android:padding="10dp"
+        android:textColorHint="@color/gray01"
+        android:textSize="16sp"/>
+
+    <!--Button: upload pdf-->
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/collectionTv"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/blue"
+        android:text="add to collection"
+        android:textColor="@color/black" />
+
+</RelativeLayout>

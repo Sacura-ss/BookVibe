@@ -171,7 +171,7 @@ public class MyApplication extends Application {
     }
 
 
-    public static void addToLibrary(Context context, String bookId) {
+    public static void addToLibrary(Context context, String bookId, String bookTitle) {
         //we can add only if user is logged in
         //1) check if user logged in
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -184,6 +184,8 @@ public class MyApplication extends Application {
             //setup data to add in firebase db of a current user for All book
             HashMap<String,Object> hashMap = new HashMap<>();
             hashMap.put("bookId",""+bookId);
+            hashMap.put("bookTitle", ""+bookTitle);
+            hashMap.put("collectionId", "");
             hashMap.put("timestamp",""+timestamp);
 
             //save to db

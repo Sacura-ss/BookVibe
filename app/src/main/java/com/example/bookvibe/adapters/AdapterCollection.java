@@ -3,6 +3,7 @@ package com.example.bookvibe.adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookvibe.PdfDetailActivity;
+import com.example.bookvibe.PdfListUserActivity;
 import com.example.bookvibe.databinding.RowCategoryBinding;
 import com.example.bookvibe.filters.FilterCollection;
 import com.example.bookvibe.models.ModelCategory;
@@ -88,6 +91,16 @@ public class AdapterCollection extends RecyclerView.Adapter<AdapterCollection.Ho
                             }
                         })
                         .show();
+            }
+        });
+        //handle item click, go to PdfListUserActivity, also pass pdfTil collection and collectionId
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, PdfListUserActivity.class);
+                intent.putExtra("collectionId", id);
+                intent.putExtra("collectionTitle", collection);
+                context.startActivity(intent);
             }
         });
     }

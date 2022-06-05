@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".PdfAddToCollectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LibraryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PdfListUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".CollectionAddActivity"
             android:exported="false" />
         <activity

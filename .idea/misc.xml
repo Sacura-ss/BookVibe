@@ -27,10 +27,13 @@
         <entry key="app/src/main/res/layout/activity_collection_add.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dashboard_admin.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dashboard_user.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_library.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_pdf_add.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_pdf_add_to_collection.xml" value="0.17769718948322757" />
         <entry key="app/src/main/res/layout/activity_pdf_detail.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_pdf_list_user.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_pdf_view.xml" value="0.12118679481821981" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.1" />

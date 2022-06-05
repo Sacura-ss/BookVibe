@@ -86,7 +86,7 @@ public class PdfDetailActivity extends AppCompatActivity {
                     }
                     else {
                         //not in library, add to library
-                        MyApplication.addToLibrary(PdfDetailActivity.this, bookId);
+                        MyApplication.addToLibrary(PdfDetailActivity.this, bookId, bookTitle);
                         binding.readBookBtn.setVisibility(View.VISIBLE);
                     }
                 }

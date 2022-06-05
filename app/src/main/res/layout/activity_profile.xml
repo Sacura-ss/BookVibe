@@ -160,20 +160,28 @@
         android:background="@color/gray03"
         android:layout_below="@+id/detailsLl"/>
 
+    <!--Button: Library-->
+    <Button
+        android:id="@+id/libraryBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/justView2"
+        android:background="@color/blue"
+        android:text="Library"/>
+
     <!--Categories-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomLl"
-        android:layout_below="@+id/justView2"
+        android:layout_below="@+id/libraryBtn"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/row_category" />
-
 
     <LinearLayout
         android:id="@+id/bottomLl"
@@ -197,6 +205,16 @@
             android:minHeight="50dp"
             android:textAllCaps="false"
             android:textColor="@color/black" />
+
+        <!--Add PDF-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addPdfFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pdf_add_black"
+            app:backgroundTint="@color/blue"
+            app:fabCustomSize="50dp"
+            app:tint="@color/black" />
 
 
     </LinearLayout>

@@ -1,18 +1,24 @@
 package com.example.bookvibe;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 
-import com.example.bookvibe.adapters.AdapterCategory;
 import com.example.bookvibe.adapters.AdapterCollection;
 import com.example.bookvibe.databinding.ActivityProfileBinding;
-import com.example.bookvibe.models.ModelCategory;
+import com.example.bookvibe.fragments.BooksUserFragment;
 import com.example.bookvibe.models.ModelCollection;
+import com.example.bookvibe.models.ModelPdf;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,7 +33,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     //view binding
     private ActivityProfileBinding binding;
-    
+
     //firebase auth, fjr loading user data using user uid
     FirebaseAuth firebaseAuth;
 
@@ -64,6 +70,22 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(ProfileActivity.this, CollectionAddActivity.class));
             }
         });
+
+        //handle click, library button
+        binding.libraryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this, LibraryActivity.class));
+            }
+        });
+
+        // handle click, start pdf add screen
+        binding.addPdfFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileActivity.this, PdfAddToCollectionActivity.class));
+            }
+        });
     }
 
     private void loadUserInfo() {
@@ -93,6 +115,8 @@ public class ProfileActivity extends AppCompatActivity {
 
                         //set image, using glide ...
 
+                        //binding.booksInLibraryCountTv.setText(""+getNumberBooks());
+
                     }
 
                     @Override
@@ -114,6 +138,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //clear arraylist before adding data into it
                 collectionArrayList.clear();
+
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()) {
                     //get data
                     ModelCollection modelCollection = dataSnapshot.getValue(ModelCollection.class);
@@ -132,6 +157,35 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private int getNumberBooks() {
+        List<ModelPdf> pdfArrayList = new ArrayList<>();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+        reference.child(firebaseAuth.getUid()).child("Library")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        //before clear list
+                        pdfArrayList.clear();
+                        for(DataSnapshot dataSnapshot: snapshot.getChildren()) {
+                            //we will only get the bookId here
+                            String bookId = ""+dataSnapshot.child("bookId").getValue();
+
+                            ModelPdf modelPdf = new ModelPdf();
+                            modelPdf.setId(bookId);
+
+                            pdfArrayList.add(modelPdf);
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+        return pdfArrayList.size();
     }
 
 }
